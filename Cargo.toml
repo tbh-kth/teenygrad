@@ -4,3 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+walkdir = "2"
+tokenizer_py = "0.2.0"
+itertools = "0.12.1"
+tabled = "0.15.0"
+
+[[test]]
+name = "sz"
+path = "src/tests/sz.rs"
