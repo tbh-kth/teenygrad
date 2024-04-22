@@ -10,5 +10,5 @@ itertools = "0.12.1"
 tabled = "0.15.0"
 
 [[test]]
-name = "sz"
+name = "lines"
 path = "src/tests/sz.rs"
