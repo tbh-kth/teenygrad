@@ -12,7 +12,6 @@ fn lines() -> std::io::Result<()> {
             Token::OP(_) | Token::Name(_) | Token::Number(_) | Token::String(_)
         )
     };
-    let _headers = vec!["Name", "Lines", "Tokens/Line"];
     let mut table: Vec<(String, i32, f32)> = vec![];
 
     for entry in WalkDir::new("src/teenygrad") {
