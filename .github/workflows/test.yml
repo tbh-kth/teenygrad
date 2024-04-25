@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout Code
       uses: actions/checkout@v2
 
     - name: Install Rust
@@ -19,6 +19,9 @@ jobs:
       with:
         toolchain: stable
         override: true
-
+        
+    - name: Build Project
+      run: cargo build
+      
     - name: Get Code Size
       run: cargo test lines -- --nocapture
