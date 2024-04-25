@@ -18,4 +18,4 @@ jobs:
         override: true
 
     - name: Run tests
-      run: cargo test -- --nocapture
+      run: cargo test lines -- --nocapture
