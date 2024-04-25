@@ -1,6 +1,9 @@
+name: Test
+
 on: [push, pull_request]
 
-name: Test
+env: 
+  CARGO_TERM_COLOR: always
 
 jobs:
  test:
