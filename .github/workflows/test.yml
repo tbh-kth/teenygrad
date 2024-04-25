@@ -17,5 +17,5 @@ jobs:
         toolchain: stable
         override: true
 
-    - name: Run tests
+    - name: Get Code Size
       run: cargo test lines -- --nocapture
