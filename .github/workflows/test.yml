@@ -1,0 +1,21 @@
+on: [push, pull_request]
+
+name: Test
+
+jobs:
+ test:
+    name: Run Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Get Code Size
+      run: cargo test lines -- --nocapture
