@@ -4,7 +4,7 @@
 #### A thesis project to explore the utility and usability of the Rust programming language in a machine learning framework.
 
 [![Rust](https://img.shields.io/badge/Rust-f74c00.svg?style=for-the-badge&logoColor=white&logo=rust)]()
-[![Teenygrad](https://img.shields.io/badge/Teenygrad-FFFFFF.svg?style=for-the-badge&logoColor=black&logo=ptinygrad)](https://github.com/tinygrad/teenygrad/tree/update)
+[![Teenygrad](https://img.shields.io/badge/Teenygrad-FFFFFF.svg?style=for-the-badge&logoColor=black&logo=tinygrad)](https://github.com/tinygrad/teenygrad/tree/update)
 
 </div>
 
