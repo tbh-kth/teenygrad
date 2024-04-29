@@ -23,7 +23,7 @@ fn lines() -> std::io::Result<()> {
                         .filter(|token| {
                             matches!(
                                 token,
-                                Token::Name(_) | Token::OP(_) | Token::Number(_) | Token::String(_) // Whitelisted tokens
+                                Token::Name(_) | Token::OP(_) | Token::Number(_) | Token::String(_)
                             )
                         })
                         .collect::<Vec<_>>()
@@ -36,7 +36,7 @@ fn lines() -> std::io::Result<()> {
                     .iter()
                     .map(|inner_vec| inner_vec.len())
                     .sum::<usize>() as f32)
-                    / (tokens.len() as f32), // We will add this later
+                    / (tokens.len() as f32),
             ));
         }
     }
