@@ -25,9 +25,12 @@ fn lines() -> std::io::Result<()> {
                                 Token::Name(_) | Token::OP(_) | Token::Number(_) | Token::String(_)
                             )
                         })
+                        .take_while(|token| !matches!(token, Token::OP(s) if s == "//"))
                         .collect::<Vec<_>>()
                 })
+                .filter(|vec| !vec.is_empty())
                 .collect::<Vec<_>>();
+            println!("{:?}", tokens);
             table.push((
                 filepath.chars().skip(4).collect::<String>(),
                 tokens.len() as i32,
