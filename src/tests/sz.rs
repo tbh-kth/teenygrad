@@ -15,9 +15,8 @@ fn lines() -> std::io::Result<()> {
                 .lines()
                 .filter_map(|line| line.ok())
                 .into_iter()
-                .map(|item| tokenize(item.to_string()))
-                .map(|token_vec| {
-                    token_vec
+                .map(|item| {
+                    tokenize(item.to_string())
                         .unwrap()
                         .into_iter()
                         .filter(|token| {
