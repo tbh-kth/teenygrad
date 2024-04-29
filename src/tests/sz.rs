@@ -30,7 +30,6 @@ fn lines() -> std::io::Result<()> {
                 })
                 .filter(|vec| !vec.is_empty())
                 .collect::<Vec<_>>();
-            println!("{:?}", tokens);
             table.push((
                 filepath.chars().skip(4).collect::<String>(),
                 tokens.len() as i32,
