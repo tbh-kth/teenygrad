@@ -33,11 +33,7 @@ fn lines() -> std::io::Result<()> {
             table.push((
                 filepath.chars().skip(4).collect::<String>(),
                 tokens.len() as i32,
-                (tokens
-                    .iter()
-                    .map(|inner_vec| inner_vec.len())
-                    .sum::<usize>() as f32)
-                    / (tokens.len() as f32),
+                (tokens.iter().map(|vec| vec.len()).sum::<usize>() as f32) / (tokens.len() as f32),
             ));
         }
     }
