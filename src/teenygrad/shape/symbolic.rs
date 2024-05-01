@@ -1,1 +1,1 @@
-pub type Sint = i32;
+pub type sint = i32;
