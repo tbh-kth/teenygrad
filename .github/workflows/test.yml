@@ -6,6 +6,23 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+ cargo_check: 
+    name: Run cargo check
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+        
+    - name: Build Project
+      run: cargo check
+
  test:
     name: Run Test
     runs-on: ubuntu-latest
