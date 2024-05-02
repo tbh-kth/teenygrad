@@ -1,8 +1,9 @@
 repos:
   - repo: local
     hooks:
-      - id: sz
-        name: line counter
-        entry: cargo test sz
-        language: system
+      - id: lines
+        name: line counter and tokenizer
+        entry: cargo test
+        verbose: true
+        language: rust
         always_run: true
