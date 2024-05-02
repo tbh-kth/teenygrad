@@ -5,4 +5,5 @@ repos:
         name: line counter and tokenizer
         entry: python src/tests/sz.py 
         language: system
+        verbose: true
         always_run: true
