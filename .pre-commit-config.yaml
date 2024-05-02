@@ -6,4 +6,3 @@ repos:
         entry: cargo test sz
         language: system
         always_run: true
-        pass_filenames: false
