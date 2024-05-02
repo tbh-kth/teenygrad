@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: sz
+        name: line counter
+        entry: env cargo test sz
+        language: system
+        always_run: true
+        pass_filenames: false
