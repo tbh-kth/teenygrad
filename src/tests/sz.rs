@@ -5,7 +5,7 @@ use tokenizer_py::{tokenize, Token};
 use walkdir::WalkDir;
 
 #[test]
-fn lines() -> std::io::Result<()> {
+fn sz() -> std::io::Result<()> {
     let mut table: Vec<(String, i32, f32)> = vec![];
 
     for entry in WalkDir::new("src/teenygrad") {
