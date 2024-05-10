@@ -3,12 +3,11 @@
 struct Devices;
 impl Devices {
     pub const DEFAULT: &'static str = "CPU";
-    pub static DEVICES: [&'static str; 1] = ["CPU"];
+    pub const DEVICES: [&'static str; 1] = ["CPU"];
     pub fn cannicalize(_device: String) -> String {
         return String::from("CPU");
-        }
+    }
 }
-
 
 // THIS IS THE COMPLEX SHIT
 //struct Buffer;
@@ -25,4 +24,3 @@ impl Devices {
 //       //  def as_buffer(self): return np.require(self._buf, requirements=["C"]).data
 //    }
 //}
-
