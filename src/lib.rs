@@ -8,9 +8,11 @@ pub mod teenygrad {
     pub mod shape {
         pub mod symbolic;
     }
+    pub mod device;
     pub mod function;
     pub mod lazy;
     pub mod ops;
     pub mod realize;
     pub mod tensor;
 }
+
