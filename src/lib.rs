@@ -9,8 +9,10 @@ pub mod teenygrad {
         pub mod symbolic;
     }
     pub mod function;
+    pub mod helpers;
     pub mod lazy;
     pub mod ops;
     pub mod realize;
     pub mod tensor;
 }
+
