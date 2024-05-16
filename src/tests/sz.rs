@@ -22,7 +22,11 @@ fn sz() -> std::io::Result<()> {
                         .filter(|token| {
                             matches!(
                                 token,
-                                Token::Name(_) | Token::OP(_) | Token::Number(_) | Token::String(_)
+                                Token::Name(_)
+                                    | Token::OP(_)
+                                    | Token::Number(_)
+                                    | Token::String(_)
+                                    | Token::Comment(_)
                             )
                         })
                         .take_while(|token| !matches!(token, Token::OP(s) if s == "//"))
