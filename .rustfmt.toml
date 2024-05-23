@@ -1,1 +1,10 @@
-#skip_children = ["src/teenygrad"]
+ignore = [
+  "src/tests",
+  "src/example",
+]
+
+max_width = 150
+
+blank_lines_upper_bound = 1
+blank_lines_lower_bound = 0
+fn_single_line = true
