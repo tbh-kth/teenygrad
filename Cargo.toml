@@ -9,5 +9,5 @@ tokenizer_py = "0.2.0"
 tabled = "0.15.0"
 
 [[test]]
-name = "lines"
+name = "sz"
 path = "src/tests/sz.rs"

@@ -24,4 +24,4 @@ jobs:
       run: cargo build
       
     - name: Get Code Size
-      run: cargo test lines -- --nocapture
+      run: cargo test sz -- --nocapture
