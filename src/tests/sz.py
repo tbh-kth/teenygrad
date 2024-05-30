@@ -1,3 +1,15 @@
+"""
+
+Did my own implementation sz.rs, but the dude that had tokenize_py cargo package deleted it. 
+
+I am quite upset about it since I was quite proud of that code. 
+
+I still need to make sure that this does not work when you have a token.String("//") which is a comment in Rust, but I am kinda over this atm.
+
+"""
+
+
+
 #!/usr/bin/env python3
 import os
 import token
@@ -5,7 +17,7 @@ import tokenize
 import itertools
 from tabulate import tabulate
 
-TOKEN_WHITELIST = [token.OP, token.NAME, token.NUMBER, token.STRING]
+TOKEN_WHITELIST = [token.OP, token.NAME, token.NUMBER, token.STRING, token.COMMENT]
 
 if __name__ == "__main__":
   headers = ["Name", "Lines", "Tokens/Line"]
