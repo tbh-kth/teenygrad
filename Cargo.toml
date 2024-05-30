@@ -5,9 +5,10 @@ edition = "2021"
 
 [dependencies]
 walkdir = "2"
-tokenizer_py = "0.2.0"
 tabled = "0.15.0"
+tokenizers = { version = "0.14.1", features = ["http"] }
+rust_tokenizers = "8.1.1"
 
 [[test]]
 name = "sz"
-path = "src/tests/sz.rs"
+path = "src/tests/test.rs"
