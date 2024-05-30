@@ -1,14 +1,12 @@
 """
-
 Did my own implementation sz.rs, but the dude that had tokenize_py cargo package deleted it. 
 
 I am quite upset about it since I was quite proud of that code. 
 
-I still need to make sure that this does not work when you have a token.String("//") which is a comment in Rust, but I am kinda over this atm.
+Added a line at 29 to break the tokenization process if it detects a single line comment, therefore we do not count rust comments in our tokens.
 
+- Alex
 """
-
-
 
 #!/usr/bin/env python3
 import os
@@ -27,7 +25,10 @@ if __name__ == "__main__":
       if not name.endswith(".rs"): continue
       filepath = os.path.join(path, name)
       with tokenize.open(filepath) as file_:
-        tokens = [t for t in tokenize.generate_tokens(file_.readline) if t.type in TOKEN_WHITELIST]
+        tokens = []
+        for t in tokenize.generate_tokens(file_.readline):
+            if t.string == "//": break
+            if t.type in TOKEN_WHITELIST: tokens.append(t)
         token_count, line_count = len(tokens), len(set([t.start[0] for t in tokens]))
         table.append([filepath, line_count, 0]) # token_count/line_count])
 
