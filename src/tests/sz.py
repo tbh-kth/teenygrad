@@ -3,7 +3,9 @@ Did my own implementation sz.rs, but the dude that had tokenize_py cargo package
 
 I am quite upset about it since I was quite proud of that code. 
 
-Added a line at 29 to break the tokenization process if it detects a single line comment, therefore we do not count rust comments in our tokens.
+Added a line at 29 to break the tokenization process if it detects a single line comment, therefore we do not count Rust comments in our tokens.
+
+I also allowed token.Comment since a python comment is a # and we might need that in Rust.
 
 - Alex
 """
