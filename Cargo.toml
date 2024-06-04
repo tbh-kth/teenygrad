@@ -4,10 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-walkdir = "2"
-tabled = "0.15.0"
-tokenizers = { version = "0.14.1", features = ["http"] }
-rust_tokenizers = "8.1.1"
 
 [[test]]
 name = "sz"
