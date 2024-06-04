@@ -6,5 +6,3 @@ edition = "2021"
 [dependencies]
 
 [[test]]
-name = "sz"
-path = "src/tests/test.rs"
