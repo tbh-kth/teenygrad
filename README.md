@@ -6,6 +6,10 @@
 [![Rust](https://img.shields.io/badge/Rust-f74c00.svg?style=for-the-badge&logoColor=white&logo=rust)]()
 [![Teenygrad](https://img.shields.io/badge/Teenygrad-FFFFFF.svg?style=for-the-badge&logoColor=black&logo=tinygrad)](https://github.com/tinygrad/teenygrad/tree/update)
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/teeny-kth/teenygrad/test.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=Test&labelColor=black)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/teeny-kth/teenygrad/lines.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=Line%20Counter&labelColor=black)
+
+
 </div>
 
 ## ⇁  Welcome

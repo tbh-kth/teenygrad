@@ -1,0 +1,24 @@
+name: Line_counter
+
+on: [push, pull_request]
+
+env: 
+  CARGO_TERM_COLOR: always
+
+jobs:
+ count_lines:
+   name: Run tests
+   runs-on: ubuntu-latest
+   timeout-minutes: 20
+ 
+   steps:
+   - name: Checkout Code
+     uses: actions/checkout@v3
+   - name: Set up Python 3.11
+     uses: actions/setup-python@v4
+     with:
+       python-version: 3.11
+   - name: Install deps with testing deps
+     run: pip install tabulate   
+   - name: Get code size
+     run: PYTHONPATH="." python src/tests/sz.py
