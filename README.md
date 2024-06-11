@@ -9,10 +9,6 @@
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/teeny-kth/teenygrad/test.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=Test&labelColor=black)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/teeny-kth/teenygrad/lines.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=Line%20Counter&labelColor=black)
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/teeny-kth/teenygrad/test.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=Test&labelColor=black)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/teeny-kth/teenygrad/lines.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=Line%20Counter&labelColor=black)
-
-
 </div>
 
 ## ⇁  Welcome
