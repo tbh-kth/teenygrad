@@ -1,26 +1,37 @@
+// Helper functions and data types
+#![allow(dead_code)]
+
 pub static _OSX: bool = cfg!(target_os = "macos");
 
-pub fn prod() {
-    todo!();
+fn prod<T>(iter: impl Iterator<Item = T>) -> T
+where
+    T: std::ops::Mul<Output = T> + Default,
+{
+    iter.fold(T::default(), |acc, x| acc * x)
 }
 
-pub fn dedup<T>(_x: Vec<T>) -> Vec<T> {
-    todo!();
-    //x.iter().dedup()
-    //    return x.into_iter().unique().collect();
-    //    // retains original order, check if using hashmap is better
+// God save me from satan's deduplicate function.
+pub fn dedup<T: std::cmp::PartialEq>(x: Vec<T>) -> Vec<T> {
+    let mut result = vec![];
+    for item in x {
+        if !result.contains(&item) {
+            result.push(item);
+        }
+    }
+    result
 }
 
-pub fn argfix<T>(_x: Vec<T>) -> Vec<T> {
-    todo!();
-    //    if condtition {
-    //        // Lost idk what i should make the condition be.
-    //        return x[0].as_Vec();
-    //    } else {
-    //        return x;
-    //    }
+// FIX
+pub fn argfix<T>(x: Vec<T>) -> Vec<T> {
+    [""].contains(&std::any::type_name::<T>())
+    
+    match x[0] {
+        Vec => x[0],
+        _ => x,
+    }
 }
 
+// FIX
 pub fn make_pair<T: Clone>(_x: T, _cint: usize) -> Vec<i32> {
     todo!();
     //    if x.is_interger() {
@@ -34,26 +45,30 @@ pub fn flatten<T>(l: Vec<Vec<T>>) -> Vec<T> {
     l.into_iter().flat_map(|x| x.into_iter()).collect()
 }
 
-pub fn argsort<T: Ord>(_x: Vec<T>) -> Vec<i32> {
-    todo!();
-    //return x
-    //    .iter()
-    //    .enumerate()
-    //    .map(|(i, &v)| (v, i))
-    //    .collect::<Vec<_>>()
-    //    .sort_by_key(|&(v, _)| v)
-    //    .into_iter()
-    //    .map(|(_, i)| i)
-    //    .collect();
+// Maybe I can make it smaller
+// https://stackoverflow.com/questions/69764050/how-to-get-the-indices-that-would-sort-a-vec
+pub fn argsort<T: Ord>(x: Vec<T>) -> Vec<usize> {
+    let mut indices = (0..x.len()).collect::<Vec<_>>();
+    indices.sort_by_key(|&i| &x[i]);
+    indices
 }
 
-pub fn all_int<T>(_t: Vec<T>) -> bool {
-    //t.into_iter().all(|&item| item.is_signed())
-    todo!();
+// Check if we need to allow unsigned int here
+fn all_int<T>(_: Vec<T>) -> bool {
+    ["i8", "i16", "i32", "i64"].contains(&std::any::type_name::<T>())
 }
 
 pub fn round_up(num: i32, amt: i32) -> i32 {
     (num + amt - 1) / amt * amt
+}
+
+#[derive(Clone, PartialEq, Eq, Hash)]
+pub struct DType {
+    pub priority: i32,
+    pub itemsize: i32,
+    pub name: &'static str,
+    pub fmt: char,
+    pub count: i32,
 }
 
 impl std::fmt::Debug for DType {
@@ -61,13 +76,21 @@ impl std::fmt::Debug for DType {
         write!(f, "dtypes.{}", self.name)
     }
 }
+impl DType {
+    pub fn is_int(&self) -> bool {
+        matches!(
+            *self,
+            INT8 | INT16 | INT32 | INT64 | UINT8 | UINT16 | UINT32 | UINT64
+        )
+    }
 
-pub struct DType {
-    pub priority: i32,
-    pub itemsize: i32,
-    pub name: &'static str,
-    pub fmt: char,
-    pub count: i32,
+    pub fn is_float(&self) -> bool {
+        matches!(*self, FLOAT16 | FLOAT32 | FLOAT64)
+    }
+
+    pub fn is_unsigned(&self) -> bool {
+        matches!(*self, UINT8 | UINT16 | UINT32 | UINT64)
+    }
 }
 
 pub const BOOL: DType = DType {
@@ -77,6 +100,35 @@ pub const BOOL: DType = DType {
     fmt: '?',
     count: 1,
 };
+
+pub const FLOAT16: DType = DType {
+    priority: 9,
+    itemsize: 2,
+    name: "half",
+    fmt: 'e',
+    count: 1,
+};
+pub const HALF: DType = FLOAT16;
+
+pub const FLOAT32: DType = DType {
+    priority: 11,
+    itemsize: 4,
+    name: "float",
+    fmt: 'f',
+    count: 1,
+};
+
+pub const FLOAT: DType = FLOAT32;
+
+pub const FLOAT64: DType = DType {
+    priority: 12,
+    itemsize: 8,
+    name: "double",
+    fmt: 'd',
+    count: 1,
+};
+
+pub const DOUBLE: DType = FLOAT64;
 
 pub const INT8: DType = DType {
     priority: 1,
@@ -142,34 +194,10 @@ pub const UINT64: DType = DType {
     count: 1,
 };
 
-pub const FLOAT16: DType = DType {
-    priority: 9,
-    itemsize: 2,
-    name: "half",
-    fmt: 'e',
-    count: 1,
-};
-
 pub const BFLOAT16: DType = DType {
     priority: 10,
     itemsize: 2,
     name: "__bf16",
     fmt: 'g',
-    count: 1,
-};
-
-pub const FLOAT32: DType = DType {
-    priority: 11,
-    itemsize: 4,
-    name: "float",
-    fmt: 'f',
-    count: 1,
-};
-
-pub const FLOAT64: DType = DType {
-    priority: 12,
-    itemsize: 8,
-    name: "double",
-    fmt: 'd',
     count: 1,
 };
