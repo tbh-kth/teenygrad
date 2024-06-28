@@ -1,7 +1,4 @@
 pub mod teenygrad {
-    pub mod features {
-        pub mod multi;
-    }
     pub mod nn {
         pub mod optim;
     }
