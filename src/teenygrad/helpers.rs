@@ -3,10 +3,7 @@
 
 pub static _OSX: bool = cfg!(target_os = "macos");
 
-fn prod<T>(iter: impl Iterator<Item = T>) -> T
-where
-    T: std::ops::Mul<Output = T> + Default,
-{
+fn prod<T: std::ops::Mul<Output = T> + Default>(iter: impl Iterator<Item = T>) -> T {
     iter.fold(T::default(), |acc, x| acc * x)
 }
 
@@ -21,24 +18,20 @@ pub fn dedup<T: std::cmp::PartialEq>(x: Vec<T>) -> Vec<T> {
     result
 }
 
-// FIX
-pub fn argfix<T>(x: Vec<T>) -> Vec<T> {
-    [""].contains(&std::any::type_name::<T>())
-    
-    match x[0] {
-        Vec => x[0],
-        _ => x,
-    }
-}
+// idk cant make it work. i will work on it later when we are doing tensor.rs
+//pub fn argfix<T: Clone>(x: Vec<T>) -> Vec<T> {
+//    if x[0].length > 1 {
+//        vec![x[0].clone()] // Then flatten it idk
+//    } else {
+//        x
+//    }
+//}
 
-// FIX
-pub fn make_pair<T: Clone>(_x: T, _cint: usize) -> Vec<i32> {
-    todo!();
-    //    if x.is_interger() {
-    //        return vec![x.clone(); cint];
-    //    } else {
-    //        return x.clone();
-    //    }
+pub fn make_pair<T: Clone>(mut x: Vec<T>, cint: T) -> Vec<T> {
+    if all_int(x.clone()) {
+        x.push(cint);
+    }
+    x
 }
 
 pub fn flatten<T>(l: Vec<Vec<T>>) -> Vec<T> {
